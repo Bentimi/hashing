@@ -4,10 +4,15 @@ body {
     color: #333;
     margin: 0;
     padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .container {
     max-width: 800px;
+    width: 100%;
     margin: 0 auto;
     background-color: #fff;
     padding: 20px;
@@ -50,8 +55,16 @@ button:hover {
 
 .result-item {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     margin-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+    .result-item {
+        flex-direction: row;
+        align-items: center;
+    }
 }
 
 .copy-btn {
@@ -192,5 +205,11 @@ button:hover {
     .modal-content {
         width: 95%;
         padding: 15px;
+        margin: 5% auto;
+        max-height: 90vh;
+    }
+
+    .result-item div {
+        word-wrap: break-word;
     }
 }
