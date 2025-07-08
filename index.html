@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Hashing and Security Analysis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Password Hashing and Security Analysis</h1>
+        <p>Enter a password to see how different hashing algorithms work and their security levels.</p>
+
+        <div class="password-section">
+            <label for="password">Enter Password:</label>
+            <input type="text" id="password" placeholder="Type a password...">
+        </div>
+
+        <div class="button-section">
+            <button id="hash-md5">Hash with MD5</button>
+            <button id="hash-sha256">Hash with SHA-256</button>
+            <button id="hash-hybrid">Hash with Hybrid (MD5 + SHA-256)</button>
+        </div>
+
+        <div id="hashing-loader" class="spinner" style="display: none;"></div>
+
+        <div id="results" style="display: none;">
+            <h2>Hashing Results</h2>
+            <div class="result-item">
+                <div id="md5-result"></div>
+                <button class="copy-btn" data-target="md5-result">Copy</button>
+            </div>
+            <div class="result-item">
+                <div id="sha256-result"></div>
+                <button class="copy-btn" data-target="sha256-result">Copy</button>
+            </div>
+            <div class="result-item">
+                <div id="hybrid-result"></div>
+                <button class="copy-btn" data-target="hybrid-result">Copy</button>
+            </div>
+        </div>
+
+        <div id="security-analysis">
+            <h2>Security Analysis</h2>
+            <p>This section will provide a basic analysis of the security of each hash.</p>
+            <div id="analysis-result"></div>
+        </div>
+
+        <div class="button-section">
+            <button id="open-modal-button">Test Security with Brute-force</button>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="brute-force-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Brute-force Attack Simulation</h2>
+            <p>Enter a hash to see how long it takes to crack it.</p>
+            <div class="input-group">
+                <input type="text" id="hash-to-crack" placeholder="Enter hash here...">
+                <button id="paste-button">Paste</button>
+            </div>
+            <button id="brute-force-button">Start Attack</button>
+            <div id="brute-force-result"></div>
+            <div id="brute-force-stats"></div>
+            <div id="loading-spinner" class="spinner" style="display: none;"></div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="script.js"></script>
+    <div id="toast-container"></div>
+</body>
+</html>
